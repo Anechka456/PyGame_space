@@ -87,6 +87,9 @@ def memory(screen, n, top_text=''):
                 x, y = mx // size2, my // size2
                 if mx >= 0 and my >= 0 and x < len(board[0]) and y < len(board) and mx % size2 <= size and my % size2 <= size:
                     board[y][x].get_click()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_z:
+                    running = False
 
         screen.blit(background_image, (0, 0))
         screen.blit(font.render(top_text, True, (255, 204, 153)), (40, 20))
@@ -94,7 +97,7 @@ def memory(screen, n, top_text=''):
         for i in range(len(board)):
             for j in range(len(board[i])):
                 board[i][j].update()
-                board[i][j].draw(screen, 20 + size2 * j, 110 + size2 * i)
+                board[i][j].draw(screen, (size2 // 7 + 5) + size2 * j, 110 + size2 * i)
 
         pygame.display.flip()
         clock.tick(60)
@@ -104,3 +107,4 @@ def memory(screen, n, top_text=''):
             memory(screen, n, 'Вы проиграли, попробуйте еще раз')
         elif all(map(lambda x: all(map(lambda y: y.open, x)), board)):
             running = False
+

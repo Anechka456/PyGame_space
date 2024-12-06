@@ -22,7 +22,7 @@ BGCOLOR = DARKTURQUOISE
 TILECOLOR = BLUE
 TEXTCOLOR = WHITE
 BORDERCOLOR = RED
-BASICFONTSIZE = 20
+BASICFONTSIZE = 18
 TEXT = GREEN
 
 BUTTONCOLOR = WHITE
@@ -248,7 +248,7 @@ def puzzle(sreen):
     original_images = [pygame.image.load(f'images/mikhailovich/{i}.png') for i in range(1, 25)]
     IMAGES = [pygame.transform.scale(image, (block_size, block_size)) for image in original_images]
     FPSCLOCK = pygame.time.Clock()
-    pygame.display.set_caption('Slide Puzzle - CopyAssignment')
+    pygame.display.set_caption('Puzzles')
     BASICFONT = pygame.font.Font('freesansbold.ttf', BASICFONTSIZE)
 
     RESET_SURF, RESET_RECT = make_text(
